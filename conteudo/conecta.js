@@ -9,6 +9,11 @@
 window.CONTEUDO = window.CONTEUDO || {};
 
 CONTEUDO.conecta = {
+  // LIGA/DESLIGA a página no site:
+  //   false = suspensa (some do menu, do rodapé, da página inicial e da barra de avisos; nada é apagado)
+  //   true  = aparece normalmente
+  ativo: false,
+
   slogan: "Sinta o ritmo. Viva a conexão.",
   edicao: "Sounds",
   ano: "2026",

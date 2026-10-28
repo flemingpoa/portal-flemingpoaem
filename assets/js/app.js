@@ -153,7 +153,7 @@
     { id: "tutoriais", titulo: "Tutoriais", link: "tutoriais.html" },
     // Menu suspenso: as páginas abaixo aparecem ao clicar em "Outros recursos"
     { id: "outros", titulo: "Outros recursos", itens: [
-      { id: "conecta", titulo: "Conecta", link: "conecta.html" },
+      { id: "conecta", titulo: "Conecta", link: "conecta.html", requer: "conecta" },
       { id: "vestibulares", titulo: "Vestibulares", link: "vestibulares.html" },
       { id: "festival", titulo: "Festival de Cinema", link: "festival.html", requer: "festival" }
     ] },
@@ -357,9 +357,9 @@
           link: "serie.html?s=" + e.serie + "#avisos" });
       });
 
-    // 4. Conquistas do Conecta (ouro primeiro)
+    // 4. Conquistas do Conecta (ouro primeiro) — só com a página do Conecta ativa
     var ordem = { ouro: 0, prata: 1, bronze: 2 };
-    lista((C.conecta || {}).campeoes).filter(function (c) { return c && c.descricao; })
+    lista(ligado({ requer: "conecta" }) ? (C.conecta || {}).campeoes : []).filter(function (c) { return c && c.descricao; })
       .sort(function (a, b) { return (ordem[a.medalha] != null ? ordem[a.medalha] : 9) - (ordem[b.medalha] != null ? ordem[b.medalha] : 9); })
       .forEach(function (c) {
         itens.push({ tag: "Conecta", medalha: c.medalha, texto: c.descricao, link: "conecta.html#campeoes" });
@@ -2037,7 +2037,8 @@
     else if (pagina === "tutoriais") html = paginaTutoriais();
     else if (pagina === "tutorial") { ativo = "tutoriais"; html = paginaTutorial(); }
     else if (pagina === "contatos") html = paginaContatos();
-    else if (pagina === "conecta") html = paginaConecta();
+    else if (pagina === "conecta") html = ligado({ requer: "conecta" }) ? paginaConecta()
+      : naoEncontrado("Página indisponível no momento", "index.html", "Voltar ao início");
     else if (pagina === "vestibulares") html = paginaVestibulares();
     else if (pagina === "festival") html = ligado({ requer: "festival" }) ? paginaFestival()
       : naoEncontrado("Página indisponível no momento", "index.html", "Voltar ao início");

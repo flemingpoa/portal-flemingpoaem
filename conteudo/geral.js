@@ -72,7 +72,7 @@ CONTEUDO.geral = {
     { grupo: "Orientações", titulo: "Regras da Escola", descricao: "Regras gerais, avaliações, frequência, atrasos e advertências.", link: "regras.html", icone: "regras" },
     { grupo: "Orientações", titulo: "Tutoriais", descricao: "Passo a passo para usar os sistemas e serviços da escola.", link: "tutoriais.html", icone: "tutorial" },
 
-    { grupo: "Outros recursos", titulo: "Conecta", descricao: "O evento da rede: etapa local, etapa em rede e Painel dos campeões.", link: "conecta.html", icone: "estrela" },
+    { grupo: "Outros recursos", titulo: "Conecta", descricao: "O evento da rede: etapa local, etapa em rede e Painel dos campeões.", link: "conecta.html", icone: "estrela", requer: "conecta" },
     { grupo: "Outros recursos", titulo: "Vestibulares", descricao: "Datas dos principais vestibulares e do ENEM, com contagem regressiva.", link: "vestibulares.html", icone: "capelo" },
     { grupo: "Outros recursos", titulo: "Festival de Cinema", descricao: "Curtas-metragens a partir das leituras obrigatórias da UFRGS.", link: "festival.html", icone: "video", requer: "festival" },
 
